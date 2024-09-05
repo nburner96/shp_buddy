@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/shp_buddy" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
