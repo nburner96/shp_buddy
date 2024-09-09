@@ -192,7 +192,6 @@ class shpBuddy:
         fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
         wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
 
-
         self.dlg.maxLCD.display(rows*ranges)
         self.dlg.exptLCD.display(plots*reps)
         self.dlg.fillLCD.display(sum(fills))

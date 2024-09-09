@@ -12,8 +12,8 @@ email=nburner@uga.edu
 
 about=SHP Buddy provides an easy and intuitive way for creating shapefile grids for breeding plots.
 
-tracker=http://bugs
-repository=http://repo
+tracker=https://github.com/nburner96/shp_buddy/issues
+repository=https://github.com/nburner96/shp_buddy
 # End of mandatory metadata
 
 # Recommended items:
