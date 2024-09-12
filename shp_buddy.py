@@ -548,6 +548,9 @@ class shpBuddy:
                 width = width / 3.28084
                 length = length / 3.28084
 
+                lenBuff = lenBuff / 3.28084
+                widBuff = widBuff / 3.28084
+
 
             # Get the extent of the current map canvas
             canvas = self.iface.mapCanvas()
@@ -647,10 +650,12 @@ class shpBuddy:
                         continue
 
                     # Calculate plot coordinates
-                    x_min = start_x + col * width + lenBuff
-                    x_max = x_min + width - lenBuff
-                    y_min = start_y + row * length + widBuff
-                    y_max = y_min + length - widBuff
+                    x_min = start_x + col * width + widBuff
+                    x_max = x_min + width - 2*widBuff
+                    y_min = start_y + row * length + lenBuff
+                    y_max = y_min + length - 2*lenBuff
+
+
 
                     # Create plot geometry
                     plot_polygon = QgsGeometry.fromRect(QgsRectangle(x_min, y_min, x_max, y_max))
