@@ -93,4 +93,5 @@ SHP Buddy is a great option for common serpentine breeding experiments. However,
 
 This is by no means an exhaustive list. I hope to get around to most of these in the not too distant future. In the meantime, SHP Buddy is open source so feel free to play around with the code and send a pull request if you come up with something cool.
 
+Please report any issues [here](https://github.com/nburner96/shp_buddy/issues)
 
