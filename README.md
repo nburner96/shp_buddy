@@ -50,10 +50,10 @@ A dialog window will pop up where you can enter test specifications. Most sectio
 
 The following dropdowns will appear if a field book is uploaded.
 
-![image](https://github.com/user-attachments/assets/21e1e515-ed7f-4567-91a8-b789bcd95ad7)
+![image](https://github.com/user-attachments/assets/fa810ba3-d813-4988-bb03-c54d62e72392)
 
 11. Specify which header corresponds to the Plot ID column.
-12. Column selection. This section appears only if a field book file is specified. Select the columns that you want to add to the shapefile.
+12. Column selection. This section appears only if a field book file is specified. Select the columns that you want to add to the shapefile. *Note: plot and experiment name (if specified) fields are automatically added to the shapefile, do not select these columns to import from the field book*
 
 ![image](https://github.com/user-attachments/assets/af361d61-35d6-4952-84a4-a4476b7575b3)
 
@@ -61,16 +61,36 @@ The following dropdowns will appear if a field book is uploaded.
 
 **Press run to generate the shapefile**
 
-![image](https://github.com/user-attachments/assets/d9af1bbf-f349-4d13-b4fe-668fd84ad4d6)
+![image](https://github.com/user-attachments/assets/f635f89e-77df-4722-9334-2af86867bed7)
 
-The shapefile will be added to the center of the field of view.
+The shapefile will be added to the QGIS project.
+
+# Editing
 
 ![image](https://github.com/user-attachments/assets/b679ac1b-7afc-4406-bce0-fc59b6bb49d0)
 
-The shapefile can be aligned with the plots in the image by selecting the layer in the Layers panel and pressing the "Toggle Editing". The shapefile can be moved and rotated using the labeled functions. To save changes, press the "Toggle Editing" button again.
+The shapefile can be aligned with the plots in the image by selecting the layer in the Layers panel and pressing the "Toggle Editing". The shapefile can be moved and rotated using the labeled functions. To save changes, press the "Toggle Editing" button again. More information on editing shapefiles can be found in the [QGIS documentation](https://docs.qgis.org/3.34/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html).
+
+# Plot Information
 
 ![image](https://github.com/user-attachments/assets/d0e8b081-1a82-4ab0-ad6b-9888278c00bc)
-![image](https://github.com/user-attachments/assets/c311c5a3-99b3-48e8-b365-77f894a05055)
+![image](https://github.com/user-attachments/assets/3f75ebc3-120a-4790-bc9d-e0c312603d06)
 
 Right-clicking the shapefile and selecting "Open Attribute Table" will display the field book information associated with each plot.
+
+![image](https://github.com/user-attachments/assets/f2c4cde8-98ce-43a3-8339-6f623e3c78ff)
+
+Lastly, the "Identify Features" tool can be used to display information for plots of interest.
+
+# Limitations
+SHP Buddy is a great option for common serpentine breeding experiments. However, there are a number of features that may be of interest to other researchers that are not currently available in the plugin. Below is a list of some of these features, and possible solutions for the time being:
+1. Custom plot IDs
+   * Add a column that follows the SHP Buddy plot numbering system to the field book CSV. Select this column when importing the field book.
+2. Unbalanced designs
+   * SHP Buddy currently only generates shapefiles with the same number of plots per rep. One way around this may be to make "dummy" plots in the field book CSV and delete these later.
+3. Serpentine pattern by row
+   * Some breeding experiments serpentine down rows instead of across ranges. A way to MacGyver this with SHP Buddy could be to have two plot columns in the field book CSV: one corresponding to the SHP Buddy layout and the other corresponding to the actual layout. This would probably be annoying to do in excel, but could potentially be made easier if you have row and column fields on hand to more easily sort.
+
+This is by no means an exhaustive list. I hope to get around to most of these in the not too distant future. In the meantime, SHP Buddy is open source so feel free to play around with the code and send a pull request if you come up with something cool.
+
 
