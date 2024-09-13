@@ -48,7 +48,7 @@ A dialog window will pop up where you can enter test specifications. Most sectio
 
 The following dropdowns will appear if a field book is uploaded.
 
-![image](https://github.com/user-attachments/assets/fa810ba3-d813-4988-bb03-c54d62e72392)
+![image](https://github.com/user-attachments/assets/77f0f528-d936-49fc-9179-21a73880c7b9)
 
 11. Specify which header corresponds to the Plot ID column.
 12. Column selection. This section appears only if a field book file is specified. Select the columns that you want to add to the shapefile. *Note: plot and experiment name (if specified) fields are automatically added to the shapefile, do not select these columns to import from the field book*
