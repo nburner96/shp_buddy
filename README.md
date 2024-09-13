@@ -44,7 +44,7 @@ A dialog window will pop up where you can enter test specifications. Most sectio
 
 ![image](https://github.com/user-attachments/assets/edf76165-1360-4ff0-a899-d3869d1ca884)
 
-10. Field book upload. Optionally, specify a CSV file containing fieldbook information. The only requirement is that the first row is the header and that the plot IDs must match the expected numbering system as described above.
+10. Field book upload. Optionally, specify a CSV file containing fieldbook information. The only requirements are that the first row is the header and that the plot IDs must match the expected numbering system as described above.
 
 The following dropdowns will appear if a field book is uploaded.
 
