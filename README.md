@@ -59,7 +59,7 @@ The following dropdowns will appear if a field book is uploaded.
 
 13. Save shapefile. Optionally, specify the folder and file name of the shapefile. If no name specified, shapefile will be generated as a temporary layer.
 
-**Press run to generate the shapefile**
+**Press OK to generate the shapefile**
 
 ![image](https://github.com/user-attachments/assets/f635f89e-77df-4722-9334-2af86867bed7)
 
