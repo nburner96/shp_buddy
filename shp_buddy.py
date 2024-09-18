@@ -644,10 +644,12 @@ class shpBuddy:
             for row in range(ranges):
                 for col in range(rows):
 
-                    plot_number = int(new_mat[row, col])
+                    plot_number = new_mat[row, col]
 
                     if np.isnan(plot_number):
                         continue
+                    else:
+                        plot_number = int(plot_number)
 
                     # Calculate plot coordinates
                     x_min = start_x + col * width + widBuff
