@@ -192,6 +192,8 @@ class shpBuddy:
         fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
         wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
 
+        first_rep = self.dlg.firstrepSpin.value()
+
         self.dlg.maxLCD.display(rows*ranges)
         self.dlg.exptLCD.display(plots*reps)
         self.dlg.fillLCD.display(sum(fills))
@@ -211,7 +213,9 @@ class shpBuddy:
         if any(x > ranges or x < 1 for x in wheel_track):
             warning_text = warning_text + "At least one wheel track range is outside range limit.\n"
         if plots * reps + sum(fills) + len(wheel_track)*rows != rows*ranges:
-            warning_text = warning_text + f"Specified plots does not equal total possible plots."
+            warning_text = warning_text + f"Specified plots does not equal total possible plots.\n"
+        if first_rep > 1 and reps > 1:
+            warning_text = warning_text + f"Either reps or first rep must be 1"
 
 
         self.dlg.warnLbl.setText(warning_text)
@@ -250,6 +254,8 @@ class shpBuddy:
         self.dlg.fieldTbl.clear()
         self.dlg.fieldTbl.setVisible(False)
 
+        self.dlg.firstrepSpin.setValue(1)
+
         self.dlg.fieldTbl.setRowCount(0)
         self.dlg.fieldTbl.setColumnCount(0)
 
@@ -271,14 +277,16 @@ class shpBuddy:
 
         wheel_track = [x - 1 for x in wheel_track]
 
+        first_rep = self.dlg.firstrepSpin.value()
+
         # Make matrix of plots
         vec = []
 
         for rep in range(1, reps + 1):
             if plots < 100:
-                vec.extend(list(range(rep * 100 + 1, rep * 100 + plots + 1)) + [None] * fills[rep - 1])
+                vec.extend(list(range(rep * 100*first_rep + 1, rep * 100*first_rep + plots + 1)) + [None] * fills[rep - 1])
             else:
-                vec.extend(list(range(rep * 1000 + 1, rep * 1000 + plots + 1)) + [None] * fills[rep - 1])
+                vec.extend(list(range(rep * 1000*first_rep + 1, rep * 1000*first_rep + plots + 1)) + [None] * fills[rep - 1])
 
         # Split the vector into groups of `rows`
         groups = [vec[i:i + rows] for i in range(0, len(vec), rows)]
@@ -493,6 +501,8 @@ class shpBuddy:
             self.dlg.repSpin.valueChanged.connect(self.enable_run_button)
             self.dlg.rowSpin.valueChanged.connect(self.enable_run_button)
             self.dlg.rangeSpin.valueChanged.connect(self.enable_run_button)
+            self.dlg.rangeSpin.valueChanged.connect(self.enable_run_button)
+            self.dlg.firstrepSpin.valueChanged.connect(self.enable_run_button)
 
             self.dlg.runBtn.button(QDialogButtonBox.Reset).clicked.connect(self.reset_values)
 
@@ -537,6 +547,8 @@ class shpBuddy:
             plots = self.dlg.plotSpin.value()
             fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
             wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
+
+            first_rep = self.dlg.firstrepSpin.value()
 
             # Optional buffer
             lenBuff = self.dlg.lbuffSpin.value()
@@ -613,9 +625,9 @@ class shpBuddy:
 
             for rep in range(1, reps + 1):
                 if plots < 100:
-                    vec.extend(list(range(rep * 100 + 1, rep * 100 + plots + 1)) + [None] * fills[rep - 1])
+                    vec.extend(list(range(rep * 100*first_rep + 1, rep * 100*first_rep + plots + 1)) + [None] * fills[rep - 1])
                 else:
-                    vec.extend(list(range(rep * 1000 + 1, rep * 1000 + plots + 1)) + [None] * fills[rep - 1])
+                    vec.extend(list(range(rep * 1000*first_rep + 1, rep * 1000*first_rep + plots + 1)) + [None] * fills[rep - 1])
 
             # Split the vector into groups of `rows`
             groups = [vec[i:i + rows] for i in range(0, len(vec), rows)]

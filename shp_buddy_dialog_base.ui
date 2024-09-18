@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>417</width>
+    <width>530</width>
     <height>821</height>
    </rect>
   </property>
@@ -59,7 +59,7 @@
               <number>1</number>
              </property>
              <property name="maximum">
-              <number>999</number>
+              <number>9999</number>
              </property>
             </widget>
            </item>
@@ -139,6 +139,23 @@
           <widget class="QLineEdit" name="wheelEdit">
            <property name="whatsThis">
             <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>First rep [optional]</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="firstrepSpin">
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>99999</number>
            </property>
           </widget>
          </item>
