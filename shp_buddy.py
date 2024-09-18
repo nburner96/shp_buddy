@@ -576,7 +576,7 @@ class shpBuddy:
             if expt:
                 fields.append(QgsField("Expt", QVariant.String))
 
-            fields.append(QgsField("Plot", QVariant.String))
+            fields.append(QgsField("Plot", QVariant.Int))
 
             # Add fields for CSV attributes
             csv_file_path = self.dlg.fbFile.filePath()
@@ -597,7 +597,7 @@ class shpBuddy:
                     with open(csv_file_path, 'r') as csvfile:
                         reader = csv.DictReader(csvfile)
                         for row in reader:
-                            plot_number = row.get(self.dlg.plotCmboBox.currentText())
+                            plot_number = int(row.get(self.dlg.plotCmboBox.currentText()))
                             if plot_number:
                                 csv_data[plot_number] = {col: row[col] for col in selected_cols if col in row}
                 except Exception as e:
@@ -644,7 +644,7 @@ class shpBuddy:
             for row in range(ranges):
                 for col in range(rows):
 
-                    plot_number = new_mat[row, col]
+                    plot_number = int(new_mat[row, col])
 
                     if np.isnan(plot_number):
                         continue
@@ -673,17 +673,14 @@ class shpBuddy:
 
                     # Append CSV attributes
                     if csv_file_path and os.path.exists(csv_file_path):
-                        if str(int(plot_number)) in csv_data:
-                            csv_attributes = [csv_data[str(int(plot_number))].get(col, '') for col in selected_cols]
+                        if plot_number in csv_data:
+                            csv_attributes = [csv_data[plot_number].get(col, '') for col in selected_cols]
                             attributes.extend(csv_attributes)
                         else:
                             attributes.extend([''] * len(selected_cols))
 
                     feature.setAttributes(attributes)
-                    features.append(feature)
-
-            # Add features to the layer
-            pr.addFeatures(features)
+                    pr.addFeature(feature)
 
             # Save and add shapefile
             saved_file_path = self.dlg.outFile.filePath()
