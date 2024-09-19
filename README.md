@@ -31,7 +31,7 @@ A dialog window will pop up where you can enter test specifications. Most sectio
 
 ![image](https://github.com/user-attachments/assets/74731052-5141-4370-9e77-436c0d27e9aa)
 
-6. *In development* Optional first rep. Used for large, typically unreplicated trials in which the plot numbers are continuous and the first digit is not meant to reflect a rep number. Only works when plots per rep is 1000 or greater. Ex: Specifying a firts rep of 2 will begin a continuous series starting at 2001.
+6. *In development* Optional first rep. Used for large, typically unreplicated trials in which the plot numbers are continuous and the first digit is not meant to reflect a rep number. Meant for trials with 1000 or more plots per rep. Ex: Specifying a firts rep of 2 will begin a continuous series starting at 2001.
 
 ![image](https://github.com/user-attachments/assets/0b7accd5-e4d5-4057-a331-9110f373b6b4)
 ![image](https://github.com/user-attachments/assets/d3c399b4-6ff9-4697-8acb-4f5806af0478)
