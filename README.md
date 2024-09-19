@@ -29,33 +29,37 @@ A dialog window will pop up where you can enter test specifications. Most sectio
 4. Number of fill plots after each rep. Expressed as a comma separated list. List length must equal Reps value (specify 0 if a rep is not followed by fills).
 5. Wheel track ranges. A list of numbers indicating which ranges (starting from the front of the field) are in wheel tracks and are planted with fills. In the example, ranges 9 and 18 are wheel track ranges.
 
-![image](https://github.com/user-attachments/assets/120f5b10-9262-4a2b-be27-be50963733d1)
+![image](https://github.com/user-attachments/assets/74731052-5141-4370-9e77-436c0d27e9aa)
+
+6. *In development* Optional first rep. Used for large, typically unreplicated trials in which the plot numbers are continuous and the first digit is not meant to reflect a rep number. Only works when plots per rep is 1000 or greater. Ex: Specifying a firts rep of 2 will begin a continuous series starting at 2001.
+
+![image](https://github.com/user-attachments/assets/0b7accd5-e4d5-4057-a331-9110f373b6b4)
 ![image](https://github.com/user-attachments/assets/d3c399b4-6ff9-4697-8acb-4f5806af0478)
 
-6. Plot tracker. This displays the number of different types of plots specified to help identify the source of potential dimension errors. Specified plots is the total number of experimental and fill plots (including those in wheel tracks). Required plots is the total footprint (in plots) of the experiment as calculated by Rows x Ranges. If there are no errors in the inputs, a preview of the map will appear.
+7. Plot tracker. This displays the number of different types of plots specified to help identify the source of potential dimension errors. Specified plots is the total number of experimental and fill plots (including those in wheel tracks). Required plots is the total footprint (in plots) of the experiment as calculated by Rows x Ranges. If there are no errors in the inputs, a preview of the map will appear.
 
-![image](https://github.com/user-attachments/assets/106b889a-f29e-4d13-ad32-1e5573c0b95e)
+![image](https://github.com/user-attachments/assets/249af6c4-f6e4-4471-b7d5-1c85fb41608b)
 
-7. Total plot dimensions. Includes all rows and alleyways for each plot.
-8. Plot buffers. Specifies how much to trim off of each side of the length and width. In the example, we want to only look at the middle two rows (2.5 ft. row spacing) for each plot and exclude alleyways.
-9. Plot units. Currently feet and meters are available. The final plot dimensions will be displayed above.
+8. Total plot dimensions. Includes all rows and alleyways for each plot.
+9. Plot buffers. Specifies how much to trim off of each side of the length and width. In the example, we want to only look at the middle two rows (2.5 ft. row spacing) for each plot and exclude alleyways.
+10. Plot units. Currently feet and meters are available. The final plot dimensions will be displayed above.
 
-![image](https://github.com/user-attachments/assets/a3a88e99-485c-48d9-8a81-53ce66127350)
+![image](https://github.com/user-attachments/assets/c9295e4b-4292-4f11-b8a8-61d5f021ff37)
 
 ![image](https://github.com/user-attachments/assets/edf76165-1360-4ff0-a899-d3869d1ca884)
 
-10. Field book upload. Optionally, specify a CSV file containing fieldbook information. The only requirements are that the first row is the header and that the plot IDs must match the expected numbering system as described above.
+11. Field book upload. Optionally, specify a CSV file containing fieldbook information. The only requirements are that the first row is the header and that the plot IDs must match the expected numbering system as described above.
 
 The following dropdowns will appear if a field book is uploaded.
 
-![image](https://github.com/user-attachments/assets/77f0f528-d936-49fc-9179-21a73880c7b9)
+![image](https://github.com/user-attachments/assets/12f96052-17a3-4030-a746-dfd6d0f9d7fb)
 
-11. Specify which header corresponds to the Plot ID column.
-12. Column selection. This section appears only if a field book file is specified. Select the columns that you want to add to the shapefile. *Note: plot and experiment name (if specified) fields are automatically added to the shapefile, do not select these columns to import from the field book*
+12. Specify which header corresponds to the Plot ID column.
+13. Column selection. This section appears only if a field book file is specified. Select the columns that you want to add to the shapefile. *Note: plot and experiment name (if specified) fields are automatically added to the shapefile, do not select these columns to import from the field book*
+    
+![image](https://github.com/user-attachments/assets/a15e1556-99d4-4bca-8f0d-bc42c1329f3e)
 
-![image](https://github.com/user-attachments/assets/af361d61-35d6-4952-84a4-a4476b7575b3)
-
-13. Save shapefile. Optionally, specify the folder and file name of the shapefile. If no name specified, shapefile will be generated as a temporary layer.
+15. Save shapefile. Optionally, specify the folder and file name of the shapefile. If no name specified, shapefile will be generated as a temporary layer.
 
 **Press OK to generate the shapefile**
 
