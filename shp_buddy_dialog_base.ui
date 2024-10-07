@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>530</width>
-    <height>821</height>
+    <width>437</width>
+    <height>957</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,62 +36,22 @@
          </item>
          <item>
           <layout class="QGridLayout" name="gridLayout">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Plots per rep</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Reps</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QSpinBox" name="plotSpin">
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <number>9999</number>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QSpinBox" name="repSpin">
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <number>99</number>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
+           <item row="7" column="0">
             <widget class="QLabel" name="label_4">
              <property name="text">
               <string>Rows</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="label_5">
+           <item row="1" column="1">
+            <widget class="QLabel" name="repsLbl">
              <property name="text">
-              <string>Ranges</string>
+              <string>Reps</string>
              </property>
             </widget>
            </item>
-           <item row="3" column="0">
-            <widget class="QSpinBox" name="rowSpin">
+           <item row="4" column="0">
+            <widget class="QSpinBox" name="startSpin">
              <property name="alignment">
               <set>Qt::AlignCenter</set>
              </property>
@@ -99,11 +59,18 @@
               <number>1</number>
              </property>
              <property name="maximum">
-              <number>999</number>
+              <number>999999</number>
              </property>
             </widget>
            </item>
            <item row="3" column="1">
+            <widget class="QLabel" name="endLbl">
+             <property name="text">
+              <string>End plot</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
             <widget class="QSpinBox" name="rangeSpin">
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -116,10 +83,110 @@
              </property>
             </widget>
            </item>
+           <item row="0" column="0">
+            <widget class="QCheckBox" name="repCheck">
+             <property name="text">
+              <string>Unreplicated</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Ranges</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QSpinBox" name="repSpin">
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>99</number>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QSpinBox" name="rowSpin">
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QSpinBox" name="endSpin">
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>999999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QSpinBox" name="skipSpin">
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>9999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QSpinBox" name="plotSpin">
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>9999</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="plotLbl">
+             <property name="text">
+              <string>Plots per rep</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="startLbl">
+             <property name="text">
+              <string>Start plot</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="skipLbl">
+             <property name="text">
+              <string>Plot indent</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </item>
          <item>
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="fillsLbl">
            <property name="text">
             <string>Fills after reps</string>
            </property>
@@ -143,19 +210,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_21">
+          <widget class="QCheckBox" name="flipCheck">
            <property name="text">
-            <string>First rep [optional]</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="firstrepSpin">
-           <property name="minimum">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <number>99999</number>
+            <string>Right to left</string>
            </property>
           </widget>
          </item>
@@ -204,7 +261,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="label_12">
+            <widget class="QLabel" name="filllcdLbl">
              <property name="autoFillBackground">
               <bool>false</bool>
              </property>
@@ -308,7 +365,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Required plots</string>
+              <string>Total possible plots</string>
              </property>
             </widget>
            </item>
@@ -611,6 +668,25 @@
    <header>qgsfilewidget.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>exptEdit</tabstop>
+  <tabstop>repCheck</tabstop>
+  <tabstop>plotSpin</tabstop>
+  <tabstop>repSpin</tabstop>
+  <tabstop>rowSpin</tabstop>
+  <tabstop>rangeSpin</tabstop>
+  <tabstop>fillsEdit</tabstop>
+  <tabstop>wheelEdit</tabstop>
+  <tabstop>flipCheck</tabstop>
+  <tabstop>lenSpin</tabstop>
+  <tabstop>widSpin</tabstop>
+  <tabstop>lbuffSpin</tabstop>
+  <tabstop>wbuffSpin</tabstop>
+  <tabstop>unitCmboBox</tabstop>
+  <tabstop>plotCmboBox</tabstop>
+  <tabstop>colsCmboBox</tabstop>
+  <tabstop>fieldTbl</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

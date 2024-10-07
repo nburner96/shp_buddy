@@ -1,0 +1,91 @@
+Expt,Location,Rep,Plot,Line,Pedigree,FC,PUB,PW,ALLPLOTS
+Yield Test 1,Athens,1,101,Line 9,R x E,W,T,T,101-222-304
+Yield Test 1,Athens,1,102,Line 11,C x Q,W,T,T,102-211-311
+Yield Test 1,Athens,1,103,Line 18,U x V,W,T,,103-210-326
+Yield Test 1,Athens,1,104,Check 3,,W,,,104-224-321
+Yield Test 1,Athens,1,105,Line 19,S x E,W,T,,105-207-309
+Yield Test 1,Athens,1,106,Line 16,G x F,W,G,BR,106-209-303
+Yield Test 1,Athens,1,107,Line 24,N x Y,P,G,,107-216-316
+Yield Test 1,Athens,1,108,Line 15,B x A,W,T,T,108-203-307
+Yield Test 1,Athens,1,109,Line 17,F x Q,P,G,,109-217-305
+Yield Test 1,Athens,1,110,Check 1,,P,G,T,110-215-301
+Yield Test 1,Athens,1,111,Check 5,,P,Lt,,111-204-308
+Yield Test 1,Athens,1,112,Line 8,E x H,P,T,T,112-201-314
+Yield Test 1,Athens,1,113,Line 14,T x D,W,G,T,113-213-310
+Yield Test 1,Athens,1,114,Check 2,,P,G,T,114-205-330
+Yield Test 1,Athens,1,115,Line 25,X x L,P,T,,115-218-318
+Yield Test 1,Athens,1,116,Line 23,R x A,P,T,,116-206-306
+Yield Test 1,Athens,1,117,Check 4,,P,T,BR,117-214-315
+Yield Test 1,Athens,1,118,Line 1,G x U,P,T,T,118-226-312
+Yield Test 1,Athens,1,119,Line 7,S x O,W,T,T,119-221-327
+Yield Test 1,Athens,1,120,Line 3,N x Z,P,T,T,120-202-322
+Yield Test 1,Athens,1,121,Line 13,O x H,MX,T,T,121-225-319
+Yield Test 1,Athens,1,122,Line 22,R x A,W,T,,122-220-320
+Yield Test 1,Athens,1,123,Line 5,E x P,W,T,T,123-227-302
+Yield Test 1,Athens,1,124,Line 6,S x D,W,T,T,124-230-325
+Yield Test 1,Athens,1,125,Line 20,D x K,W,T,,125-228-317
+Yield Test 1,Athens,1,126,Line 21,U x T,W,T,,126-229-328
+Yield Test 1,Athens,1,127,Line 2,U x E,W,T,T,127-208-323
+Yield Test 1,Athens,1,128,Line 4,L x S,W,G,Bl,128-223-324
+Yield Test 1,Athens,1,129,Line 12,U x A,W,T,T,129-212-329
+Yield Test 1,Athens,1,130,Line 10,B x K,W,T,T,130-219-313
+Yield Test 1,Athens,2,201,Line 8,E x H,P,T,T,112-201-314
+Yield Test 1,Athens,2,202,Line 3,N x Z,P,T,T,120-202-322
+Yield Test 1,Athens,2,203,Line 15,B x A,W,T,T,108-203-307
+Yield Test 1,Athens,2,204,Check 5,,P,Lt,,111-204-308
+Yield Test 1,Athens,2,205,Check 2,,P,G,T,114-205-330
+Yield Test 1,Athens,2,206,Line 23,R x A,P,T,,116-206-306
+Yield Test 1,Athens,2,207,Line 19,S x E,W,T,,105-207-309
+Yield Test 1,Athens,2,208,Line 2,U x E,W,T,T,127-208-323
+Yield Test 1,Athens,2,209,Line 16,G x F,W,G,BR,106-209-303
+Yield Test 1,Athens,2,210,Line 18,U x V,W,T,,103-210-326
+Yield Test 1,Athens,2,211,Line 11,C x Q,W,T,T,102-211-311
+Yield Test 1,Athens,2,212,Line 12,U x A,W,T,T,129-212-329
+Yield Test 1,Athens,2,213,Line 14,T x D,W,G,T,113-213-310
+Yield Test 1,Athens,2,214,Check 4,,P,T,BR,117-214-315
+Yield Test 1,Athens,2,215,Check 1,,P,G,T,110-215-301
+Yield Test 1,Athens,2,216,Line 24,N x Y,P,G,,107-216-316
+Yield Test 1,Athens,2,217,Line 17,F x Q,P,G,,109-217-305
+Yield Test 1,Athens,2,218,Line 25,X x L,P,T,,115-218-318
+Yield Test 1,Athens,2,219,Line 10,B x K,W,T,T,130-219-313
+Yield Test 1,Athens,2,220,Line 22,R x A,W,T,,122-220-320
+Yield Test 1,Athens,2,221,Line 7,S x O,W,T,T,119-221-327
+Yield Test 1,Athens,2,222,Line 9,R x E,W,T,T,101-222-304
+Yield Test 1,Athens,2,223,Line 4,L x S,W,G,Bl,128-223-324
+Yield Test 1,Athens,2,224,Check 3,,W,,,104-224-321
+Yield Test 1,Athens,2,225,Line 13,O x H,MX,T,T,121-225-319
+Yield Test 1,Athens,2,226,Line 1,G x U,P,T,T,118-226-312
+Yield Test 1,Athens,2,227,Line 5,E x P,W,T,T,123-227-302
+Yield Test 1,Athens,2,228,Line 20,D x K,W,T,,125-228-317
+Yield Test 1,Athens,2,229,Line 21,U x T,W,T,,126-229-328
+Yield Test 1,Athens,2,230,Line 6,S x D,W,T,T,124-230-325
+Yield Test 1,Athens,3,301,Check 1,,P,G,T,110-215-301
+Yield Test 1,Athens,3,302,Line 5,E x P,W,T,T,123-227-302
+Yield Test 1,Athens,3,303,Line 16,G x F,W,G,BR,106-209-303
+Yield Test 1,Athens,3,304,Line 9,R x E,W,T,T,101-222-304
+Yield Test 1,Athens,3,305,Line 17,F x Q,P,G,,109-217-305
+Yield Test 1,Athens,3,306,Line 23,R x A,P,T,,116-206-306
+Yield Test 1,Athens,3,307,Line 15,B x A,MX,T,T,108-203-307
+Yield Test 1,Athens,3,308,Check 5,,MX,Lt,,111-204-308
+Yield Test 1,Athens,3,309,Line 19,S x E,MX,T,,105-207-309
+Yield Test 1,Athens,3,310,Line 14,T x D,W,G,T,113-213-310
+Yield Test 1,Athens,3,311,Line 11,C x Q,W,T,T,102-211-311
+Yield Test 1,Athens,3,312,Line 1,G x U,P,T,T,118-226-312
+Yield Test 1,Athens,3,313,Line 10,B x K,W,T,T,130-219-313
+Yield Test 1,Athens,3,314,Line 8,E x H,P,T,T,112-201-314
+Yield Test 1,Athens,3,315,Check 4,,P,T,BR,117-214-315
+Yield Test 1,Athens,3,316,Line 24,N x Y,P,G,,107-216-316
+Yield Test 1,Athens,3,317,Line 20,D x K,W,T,,125-228-317
+Yield Test 1,Athens,3,318,Line 25,X x L,P,T,,115-218-318
+Yield Test 1,Athens,3,319,Line 13,O x H,MX,T,T,121-225-319
+Yield Test 1,Athens,3,320,Line 22,R x A,W,T,,122-220-320
+Yield Test 1,Athens,3,321,Check 3,,P,,,104-224-321
+Yield Test 1,Athens,3,322,Line 3,N x Z,P,T,T,120-202-322
+Yield Test 1,Athens,3,323,Line 2,U x E,W,T,T,127-208-323
+Yield Test 1,Athens,3,324,Line 4,L x S,W,G,Bl,128-223-324
+Yield Test 1,Athens,3,325,Line 6,S x D,W,T,T,124-230-325
+Yield Test 1,Athens,3,326,Line 18,U x V,W,T,,103-210-326
+Yield Test 1,Athens,3,327,Line 7,S x O,W,T,T,119-221-327
+Yield Test 1,Athens,3,328,Line 21,U x T,W,T,,126-229-328
+Yield Test 1,Athens,3,329,Line 12,U x A,W,T,T,129-212-329
+Yield Test 1,Athens,3,330,Check 2,,W,G,T,114-205-330

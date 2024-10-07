@@ -29,6 +29,7 @@ from qgis.PyQt.QtCore import QVariant
 import numpy as np
 import pandas as pd
 import csv
+import math
 
 # Initialize Qt resources from file resources.py
 from .resources import *
@@ -185,37 +186,72 @@ class shpBuddy:
             self.iface.removeToolBarIcon(action)
 
     def enable_run_button(self):
-        plots = self.dlg.plotSpin.value()
+        unrep = self.dlg.repCheck.isChecked()
+
         rows = self.dlg.rowSpin.value()
         ranges = self.dlg.rangeSpin.value()
-        reps = self.dlg.repSpin.value()
-        fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
         wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
 
-        first_rep = self.dlg.firstrepSpin.value()
-
-        self.dlg.maxLCD.display(rows*ranges)
-        self.dlg.exptLCD.display(plots*reps)
-        self.dlg.fillLCD.display(sum(fills))
-        self.dlg.wheelLCD.display(len(wheel_track)*rows)
-        self.dlg.specLCD.display(plots*reps + sum(fills) + len(wheel_track)*rows)
-
-        self.dlg.exptLCD.setStyleSheet("color: black;")
-        self.dlg.fillLCD.setStyleSheet("color: black;")
-        self.dlg.wheelLCD.setStyleSheet("color: black;")
-        self.dlg.specLCD.setStyleSheet("color: blue")
+        self.dlg.maxLCD.display(rows * ranges) # based on
+        self.dlg.wheelLCD.display(len(wheel_track) * rows)
         self.dlg.maxLCD.setStyleSheet("color: blue;")
+        self.dlg.wheelLCD.setStyleSheet("color: black;")
 
-        warning_text =""
+        warning_text = ""
 
-        if len(fills) != reps:
-            warning_text = warning_text + "Fill list length should equal number of reps.\n"
-        if any(x > ranges or x < 1 for x in wheel_track):
-            warning_text = warning_text + "At least one wheel track range is outside range limit.\n"
-        if plots * reps + sum(fills) + len(wheel_track)*rows != rows*ranges:
-            warning_text = warning_text + f"Specified plots does not equal total possible plots.\n"
-        if first_rep > 1 and reps > 1:
-            warning_text = warning_text + f"Either reps or first rep must be 1"
+        if not unrep:
+
+            plots = self.dlg.plotSpin.value()
+
+            reps = self.dlg.repSpin.value()
+            fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
+
+            self.dlg.exptLCD.display(plots*reps)
+            self.dlg.fillLCD.display(sum(fills))
+            self.dlg.specLCD.display(plots*reps + sum(fills) + len(wheel_track)*rows)
+
+            self.dlg.exptLCD.setStyleSheet("color: black;")
+            self.dlg.fillLCD.setStyleSheet("color: black;")
+            self.dlg.specLCD.setStyleSheet("color: blue")
+
+
+            if len(fills) != reps:
+                warning_text = warning_text + "Fill list length should equal number of reps.\n"
+            if any(x > ranges or x < 1 for x in wheel_track):
+                warning_text = warning_text + "At least one wheel track range is outside range limit.\n"
+            if plots * reps + sum(fills) + len(wheel_track)*rows != rows*ranges:
+                warning_text = warning_text + f"Specified plots does not equal total possible plots."
+
+        else:
+            start = self.dlg.startSpin.value()
+            end = self.dlg.endSpin.value()
+            indent = self.dlg.skipSpin.value()
+
+            end_fills = rows*ranges - (end - start + 1) - len(wheel_track)*rows - indent
+
+            self.dlg.exptLCD.display(end - start + 1)
+            self.dlg.fillLCD.display(end_fills)
+            self.dlg.specLCD.display(end - start + 1 + len(wheel_track)*rows + indent)
+            self.dlg.exptLCD.setStyleSheet("color: black;")
+            self.dlg.fillLCD.setStyleSheet("color: black;")
+            self.dlg.specLCD.setStyleSheet("color: blue")
+
+            if start > end:
+                warning_text = warning_text + "Start plot must be less than end plot.\n"
+                self.dlg.fillLCD.display(0)
+                self.dlg.exptLCD.display(0)
+                self.dlg.specLCD.display(0)
+            if indent >= rows:
+                warning_text = warning_text + "Indent must be less than rows in each range.\n"
+            if any(x > ranges or x < 1 for x in wheel_track):
+                warning_text = warning_text + "At least one wheel track range is outside range limit.\n"
+            if (end - start + 1) + indent + len(wheel_track)*rows + end_fills != rows*ranges:
+                warning_text = warning_text + "Specified plots does not equal total possible plots.\n"
+            if end_fills >= rows and end > start:
+                warning_text = warning_text + "Experiment dimensions too large, trailing plots should be less than rows.\n"
+            if end_fills < 0 and end > start:
+                warning_text = warning_text + "Experiment dimensions too small."
+                self.dlg.fillLCD.display(0)
 
 
         self.dlg.warnLbl.setText(warning_text)
@@ -238,6 +274,32 @@ class shpBuddy:
         self.dlg.wbuffSpin.setRange(0,width/2 - 0.001)
         self.dlg.lbuffSpin.setRange(0,length/2 - 0.001)
 
+    def unreplicated(self):
+        unrep = self.dlg.repCheck.isChecked()
+
+        self.dlg.plotLbl.setVisible(not unrep)
+        self.dlg.plotSpin.setVisible(not unrep)
+        self.dlg.repsLbl.setVisible(not unrep)
+        self.dlg.repSpin.setVisible(not unrep)
+        self.dlg.skipLbl.setVisible(not unrep)
+        self.dlg.skipSpin.setVisible(not unrep)
+        self.dlg.fillsLbl.setVisible(not unrep)
+        self.dlg.fillsEdit.setVisible(not unrep)
+
+        if unrep:
+            self.dlg.filllcdLbl.setText("Trailing plots")
+        else:
+            self.dlg.filllcdLbl.setText("Fill plots")
+
+
+        self.dlg.startLbl.setVisible(unrep)
+        self.dlg.endLbl.setVisible(unrep)
+        self.dlg.startSpin.setVisible(unrep)
+        self.dlg.endSpin.setVisible(unrep)
+        self.dlg.skipLbl.setVisible(unrep)
+        self.dlg.skipSpin.setVisible(unrep)
+
+
     def reset_values(self):
         self.dlg.exptEdit.clear()
         self.dlg.plotSpin.setValue(1)
@@ -254,7 +316,18 @@ class shpBuddy:
         self.dlg.fieldTbl.clear()
         self.dlg.fieldTbl.setVisible(False)
 
-        self.dlg.firstrepSpin.setValue(1)
+        # Unreplicated options
+        self.dlg.repCheck.setChecked(False)
+        self.dlg.startLbl.setVisible(False)
+        self.dlg.endLbl.setVisible(False)
+        self.dlg.startSpin.setVisible(False)
+        self.dlg.endSpin.setVisible(False)
+        self.dlg.skipLbl.setVisible(False)
+        self.dlg.skipSpin.setVisible(False)
+
+        self.dlg.filllcdLbl.setText("Fill plots")
+
+        self.dlg.flipCheck.setChecked(False)
 
         self.dlg.fieldTbl.setRowCount(0)
         self.dlg.fieldTbl.setColumnCount(0)
@@ -268,25 +341,42 @@ class shpBuddy:
         self.enable_run_button()
 
     def field_preview(self):
+        unrep = self.dlg.repCheck.isChecked()
         rows = self.dlg.rowSpin.value()
         ranges = self.dlg.rangeSpin.value()
-        reps = self.dlg.repSpin.value()
-        plots = self.dlg.plotSpin.value()
-        fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
+
         wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
 
         wheel_track = [x - 1 for x in wheel_track]
 
-        first_rep = self.dlg.firstrepSpin.value()
+        flipped = self.dlg.flipCheck.isChecked()
 
-        # Make matrix of plots
-        vec = []
+        if not unrep:
+            reps = self.dlg.repSpin.value()
+            plots = self.dlg.plotSpin.value()
 
-        for rep in range(1, reps + 1):
-            if plots < 100:
-                vec.extend(list(range(rep * 100*first_rep + 1, rep * 100*first_rep + plots + 1)) + [None] * fills[rep - 1])
-            else:
-                vec.extend(list(range(rep * 1000*first_rep + 1, rep * 1000*first_rep + plots + 1)) + [None] * fills[rep - 1])
+            fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
+
+            # Make matrix of plots
+            vec = []
+
+            for rep in range(1, reps + 1):
+                if plots < 100:
+                    vec.extend(list(range(rep * 100 + 1, rep * 100 + plots + 1)) + [None] * fills[rep - 1])
+                else:
+                    vec.extend(list(range(rep * 1000 + 1, rep * 1000 + plots + 1)) + [None] * fills[rep - 1])
+        else:
+            start = self.dlg.startSpin.value()
+            end = self.dlg.endSpin.value()
+            indent = self.dlg.skipSpin.value()
+
+            # How many blank plots after the last plot
+            end_fills = rows*ranges - (end - start + 1) - len(wheel_track)*rows - indent
+
+            vec = []
+
+            vec.extend([None] * indent + list(range(start, end+1)) + [None] * end_fills)
+
 
         # Split the vector into groups of `rows`
         groups = [vec[i:i + rows] for i in range(0, len(vec), rows)]
@@ -313,6 +403,10 @@ class shpBuddy:
 
         # Reverse the order of the rows
         new_mat = np.flipud(new_mat)
+        wheel_track_flipped = [new_mat.shape[0] - 1 - x for x in wheel_track]
+
+        if flipped:
+            new_mat = np.fliplr(new_mat)
 
         # Display new_mat in fieldTbl
         self.dlg.fieldTbl.setRowCount(new_mat.shape[0])
@@ -322,7 +416,14 @@ class shpBuddy:
             for j in range(new_mat.shape[1]):
                 value = new_mat[i, j]
                 if np.isnan(value):
-                    item = QTableWidgetItem("Fill")
+                    if unrep:
+                        if i in wheel_track_flipped:
+                            item = QTableWidgetItem("Fill")
+                        else:
+                            item = QTableWidgetItem("")
+                    else:
+                        item = QTableWidgetItem("Fill")
+
                     item.setForeground(QColor("red"))
                     if j == 0 or j == new_mat.shape[1] - 1:
                         font = QFont()
@@ -437,7 +538,10 @@ class shpBuddy:
 
                 # Populate colsCmboBox with checkable items
                 for header in headers:
-                    self.dlg.colsCmboBox.addItem(header)
+                    if any(header in x for x in ['Expt', 'Plot']):
+                        continue
+                    else:
+                        self.dlg.colsCmboBox.addItem(header)
 
                 self.dlg.plotCmboBox.setVisible(True)
                 self.dlg.colsCmboBox.setVisible(True)
@@ -493,6 +597,14 @@ class shpBuddy:
             self.dlg.label_17.setVisible(False)
             self.dlg.label_18.setVisible(False)
 
+            # Unreplicated stuff
+            self.dlg.startLbl.setVisible(False)
+            self.dlg.startSpin.setVisible(False)
+            self.dlg.endLbl.setVisible(False)
+            self.dlg.endSpin.setVisible(False)
+            self.dlg.skipLbl.setVisible(False)
+            self.dlg.skipSpin.setVisible(False)
+            self.dlg.filllcdLbl.setText("Trailing Plots")
 
             # Connect signals
             self.dlg.fillsEdit.textEdited.connect(self.enable_run_button)
@@ -502,9 +614,17 @@ class shpBuddy:
             self.dlg.rowSpin.valueChanged.connect(self.enable_run_button)
             self.dlg.rangeSpin.valueChanged.connect(self.enable_run_button)
             self.dlg.rangeSpin.valueChanged.connect(self.enable_run_button)
-            self.dlg.firstrepSpin.valueChanged.connect(self.enable_run_button)
+            self.dlg.flipCheck.stateChanged.connect(self.enable_run_button)
+
+            self.dlg.startSpin.valueChanged.connect(self.enable_run_button)
+            self.dlg.endSpin.valueChanged.connect(self.enable_run_button)
+            self.dlg.skipSpin.valueChanged.connect(self.enable_run_button)
+
+            self.dlg.repCheck.stateChanged.connect(self.unreplicated)
+            self.dlg.repCheck.stateChanged.connect(self.enable_run_button)
 
             self.dlg.runBtn.button(QDialogButtonBox.Reset).clicked.connect(self.reset_values)
+
 
             # Update dimensions label
             self.plot_size()
@@ -538,17 +658,27 @@ class shpBuddy:
             units = self.dlg.unitCmboBox.currentText()
 
             # Define dimensions and spacing
+            unrep = self.dlg.repCheck.isChecked()
+
             expt = self.dlg.exptEdit.text()
             width = self.dlg.widSpin.value()  # width in feet
             length = self.dlg.lenSpin.value()  # length in feet
             rows = self.dlg.rowSpin.value()
             ranges = self.dlg.rangeSpin.value()
-            reps = self.dlg.repSpin.value()
-            plots = self.dlg.plotSpin.value()
-            fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
-            wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
 
-            first_rep = self.dlg.firstrepSpin.value()
+            wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
+            flipped = self.dlg.flipCheck.isChecked()
+
+            if not unrep:
+                reps = self.dlg.repSpin.value()
+                plots = self.dlg.plotSpin.value()
+                fills = [int(x) for x in self.dlg.fillsEdit.text().split(',') if x.strip().isdigit()]
+
+            else:
+                start = self.dlg.startSpin.value()
+                end = self.dlg.endSpin.value()
+                indent = self.dlg.skipSpin.value()
+                end_fills = (rows*ranges - len(wheel_track) * rows) % (indent + (end - start + 1))
 
             # Optional buffer
             lenBuff = self.dlg.lbuffSpin.value()
@@ -623,11 +753,15 @@ class shpBuddy:
 
             vec = []
 
-            for rep in range(1, reps + 1):
-                if plots < 100:
-                    vec.extend(list(range(rep * 100*first_rep + 1, rep * 100*first_rep + plots + 1)) + [None] * fills[rep - 1])
-                else:
-                    vec.extend(list(range(rep * 1000*first_rep + 1, rep * 1000*first_rep + plots + 1)) + [None] * fills[rep - 1])
+            if not unrep:
+                for rep in range(1, reps + 1):
+                    if plots < 100:
+                        vec.extend(list(range(rep * 100 + 1, rep * 100 + plots + 1)) + [None] * fills[rep - 1])
+                    else:
+                        vec.extend(list(range(rep * 1000 + 1, rep * 1000 + plots + 1)) + [None] * fills[rep - 1])
+
+            else:
+                vec.extend([None] * indent + list(range(start, end + 1)) + [None] * end_fills)
 
             # Split the vector into groups of `rows`
             groups = [vec[i:i + rows] for i in range(0, len(vec), rows)]
@@ -651,6 +785,9 @@ class shpBuddy:
             else:
                 # No wheel_track specified, insert `mat` directly into `new_mat`
                 new_mat[:mat.shape[0], :] = mat
+
+            if flipped:
+                new_mat = np.fliplr(new_mat)
 
             # Loop through rows and columns to create plot polygons
             for row in range(ranges):
@@ -685,6 +822,8 @@ class shpBuddy:
                     if expt:
                         attributes.insert(0, expt)
 
+                    invalid_plots = 0
+
                     # Append CSV attributes
                     if csv_file_path and os.path.exists(csv_file_path):
                         if plot_number in csv_data:
@@ -692,6 +831,12 @@ class shpBuddy:
                             attributes.extend(csv_attributes)
                         else:
                             attributes.extend([''] * len(selected_cols))
+                            invalid_plots += 1
+
+                    if invalid_plots > 0:
+                        self.iface.messageBar().pushMessage("Plot mismatch", f"{invalid_plots} plots did not have a match in the field book CSV",
+                                                            level=Qgis.Warning)
+
 
                     feature.setAttributes(attributes)
                     pr.addFeature(feature)
