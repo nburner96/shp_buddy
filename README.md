@@ -21,22 +21,29 @@ SHP Buddy can be accessed from two locations in QGIS: the vector dropdown or the
 
 A dialog window will pop up where you can enter test specifications. Most sections are fairly self-explanatory, please see accompanying notes for further clarification:
 
-![image](https://github.com/user-attachments/assets/7898ef5d-8ef0-45b3-aa8c-c55af7517f86)
+![image](https://github.com/user-attachments/assets/2f2a57cc-623e-4fe8-85dc-851716bd0fdc)
 
 1. Name of the experiment
 2. Plots per rep and number of reps. Plots per rep value should exclude fill plots that are not in wheel tracks (see below)
 3. Dimensions of experiment in terms of plots. Rows is the total number of plots across each range, ranges is the total number of ranges (including wheel track ranges)
 4. Number of fill plots after each rep. Expressed as a comma separated list. List length must equal Reps value (specify 0 if a rep is not followed by fills).
 5. Wheel track ranges. A list of numbers indicating which ranges (starting from the front of the field) are in wheel tracks and are planted with fills. In the example, ranges 9 and 18 are wheel track ranges.
-
-![image](https://github.com/user-attachments/assets/74731052-5141-4370-9e77-436c0d27e9aa)
-
-6. *In development.* Optional first rep. Used for large, typically unreplicated trials in which the plot numbers are continuous and the first digit is not meant to reflect a rep number. Meant for trials with 1000 or more plots per rep. Ex: Specifying a firts rep of 2 will begin a continuous series starting at 2001.
+6. Check this box to flip the direction of the plots. If unchecked, the serpentine pattern begins with plots increasing from left to right in the first range.
 
 ![image](https://github.com/user-attachments/assets/0b7accd5-e4d5-4057-a331-9110f373b6b4)
 ![image](https://github.com/user-attachments/assets/d3c399b4-6ff9-4697-8acb-4f5806af0478)
 
 7. Plot tracker. This displays the number of different types of plots specified to help identify the source of potential dimension errors. Specified plots is the total number of experimental and fill plots (including those in wheel tracks). Required plots is the total footprint (in plots) of the experiment as calculated by Rows x Ranges. If there are no errors in the inputs, a preview of the map will appear.
+
+### Unreplicated layout options (sidenote)
+
+![image](https://github.com/user-attachments/assets/e5ce229e-1b4d-480f-adbd-5bdae16fa3c0)
+
+Checking the 'Unreplicated' box will display a slightly different set of inputs for unreplicated designs. The first and last plots are designated with the Start and End plot values. Plot indent is an optional value indicating the number of skipped plots in the first range preceding the first plot for a scenario in which the preceding experiment does not fill the last range. The plot tracker LCD is also modified to show the number of "trailing plots" in the last range. Specified plots is the sum of the experimental plots, indent plots, and wheel track plots (if specified) at the beginning of the layout. This value, plus the number of trailing plots, cannot exceed the total possible plots value determined by the product of rows and columns.
+
+The example shown is a layout that begins at plot 2001 and ends at 8195. This layout begins 25 plots into its first range as it follows another layout. The 'Right to left' box is checked since the plot numbers are increasing from right to left in the first range. A similar example is described in the associated paper (currently pending publication).  
+
+## Tutorial continued
 
 ![image](https://github.com/user-attachments/assets/249af6c4-f6e4-4471-b7d5-1c85fb41608b)
 
