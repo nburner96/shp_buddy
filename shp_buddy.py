@@ -529,7 +529,7 @@ class shpBuddy:
 
         # Read the CSV headers
         try:
-            with open(csv_file_path, 'r') as csvfile:
+            with open(csv_file_path, 'r', encoding='windows-1252') as csvfile:
                 reader = csv.reader(csvfile)
                 headers = next(reader)  # Read the first row for headers
 
@@ -736,7 +736,7 @@ class shpBuddy:
             csv_data = {}
             if csv_file_path and os.path.exists(csv_file_path):
                 try:
-                    with open(csv_file_path, 'r') as csvfile:
+                    with open(csv_file_path, 'r', encoding='windows-1252') as csvfile:
                         reader = csv.DictReader(csvfile)
                         for row in reader:
                             plot_number = int(row.get(self.dlg.plotCmboBox.currentText()))
