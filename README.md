@@ -98,7 +98,7 @@ SHP Buddy is a great option for common serpentine breeding experiments. However,
 2. Unbalanced designs
    * SHP Buddy currently only generates shapefiles with the same number of plots per rep. One way around this may be to make "dummy" plots in the field book CSV and delete these later.
 3. Serpentine pattern by row
-   * Some breeding experiments serpentine down rows instead of across ranges. A way to MacGyver this with SHP Buddy could be to have two plot columns in the field book CSV: one corresponding to the SHP Buddy layout and the other corresponding to the actual layout. This would probably be annoying to do in excel, but could potentially be made easier if you have row and column fields on hand to more easily sort.
+   * Some breeding experiments serpentine down rows instead of across ranges. A solution to this could be to ultimately rotate the shapefile 90 degrees, which would require the length and width parameters to be swapped. As far as accounting for wheel tracks in this set up, one could manually select and move the appropriate plots up a range. 
 
 This is by no means an exhaustive list. I hope to get around to most of these in the not too distant future. In the meantime, SHP Buddy is open source so feel free to play around with the code and send a pull request if you come up with something cool.
 
