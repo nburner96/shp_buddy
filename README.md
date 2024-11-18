@@ -8,6 +8,9 @@ Each plot in an experiment with 100 or more plots were rep is given a 4 digit pl
 
 Fill plots, if specified, are place after the last plot in each rep (see tutorial below).
 
+# Installation
+SHP Buddy can be installed from the plugins repository directly within QGIS. The plugins repository can be accessed through selecting the Plugins dropdown > Manage and Install Plugins. Search for "SHP Buddy" in the All tab to install.
+
 # Tutorial
 This example will walk through how to make a shapefile for the following experiment map:
 
