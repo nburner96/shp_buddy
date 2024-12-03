@@ -22,6 +22,9 @@
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QLabel" name="label">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Name of the experiment/test&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="text">
             <string>Experiment</string>
            </property>
@@ -29,6 +32,12 @@
          </item>
          <item>
           <widget class="QLineEdit" name="exptEdit">
+           <property name="toolTip">
+            <string/>
+           </property>
+           <property name="whatsThis">
+            <string/>
+           </property>
            <property name="clearButtonEnabled">
             <bool>true</bool>
            </property>
@@ -38,6 +47,9 @@
           <layout class="QGridLayout" name="gridLayout">
            <item row="7" column="0">
             <widget class="QLabel" name="label_4">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total number of plots across each range&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Rows</string>
              </property>
@@ -45,6 +57,9 @@
            </item>
            <item row="1" column="1">
             <widget class="QLabel" name="repsLbl">
+             <property name="toolTip">
+              <string>Number of replicates in experiment</string>
+             </property>
              <property name="text">
               <string>Reps</string>
              </property>
@@ -65,6 +80,9 @@
            </item>
            <item row="3" column="1">
             <widget class="QLabel" name="endLbl">
+             <property name="toolTip">
+              <string>Last plot in experiment. Must be greater than Start Plot</string>
+             </property>
              <property name="text">
               <string>End plot</string>
              </property>
@@ -85,6 +103,9 @@
            </item>
            <item row="0" column="0">
             <widget class="QCheckBox" name="repCheck">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check for unreplicated layout. This is useful for things like plant nurseries where a more customized plot numbering sequence may be desired&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Unreplicated</string>
              </property>
@@ -92,6 +113,9 @@
            </item>
            <item row="7" column="1">
             <widget class="QLabel" name="label_5">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total number of ranges in in experiment. Includes wheel track ranges.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Ranges</string>
              </property>
@@ -164,6 +188,9 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="plotLbl">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Plots in each rep. Should exclude any fill plots&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Plots per rep</string>
              </property>
@@ -171,6 +198,9 @@
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="startLbl">
+             <property name="toolTip">
+              <string>First plot in experiment</string>
+             </property>
              <property name="text">
               <string>Start plot</string>
              </property>
@@ -178,6 +208,9 @@
            </item>
            <item row="5" column="0">
             <widget class="QLabel" name="skipLbl">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Optional value to indicate number of skipped plots in the first range preceding the first plot. Useful for when a preceding experiment does not fill the entire range.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Plot indent</string>
              </property>
@@ -187,6 +220,9 @@
          </item>
          <item>
           <widget class="QLabel" name="fillsLbl">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A comma separated list of numbers indicating the number of fill plots after each rep. List length must equal number of reps, even if there are no fills&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="text">
             <string>Fills after reps</string>
            </property>
@@ -197,6 +233,9 @@
          </item>
          <item>
           <widget class="QLabel" name="label_9">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;List of numbers indicating which ranges (starting from front of the field) are in wheel tracks or are otherwise empty (or planted with fills). Numbers must be between 1 and Ranges value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="text">
             <string>Wheel track ranges</string>
            </property>
@@ -211,6 +250,9 @@
          </item>
          <item>
           <widget class="QCheckBox" name="flipCheck">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check to flip the direction of plots. If unchecked, serpentine pattern begins with plots increasing from left to right in the first range.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="text">
             <string>Right to left</string>
            </property>
@@ -233,6 +275,9 @@
           <layout class="QGridLayout" name="gridLayout_2">
            <item row="0" column="0">
             <widget class="QLabel" name="label_11">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Plot tracker. &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Replicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Plots per rep x Reps&lt;/p&gt;&lt;p&gt;Fill plots: sum of numbers in Fills after reps&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of above values&lt;/p&gt;&lt;p&gt;Required plots: Rows x Ranges. Specified plots must equal this value.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Unreplicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Number of plots as specified by start and end values&lt;/p&gt;&lt;p&gt;Trailing plots: &amp;quot;Leftover&amp;quot; plots in the last range after the last plot&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of Expt, indent, and wheel track plots.&lt;/p&gt;&lt;p&gt;Total possible plots: Rows x Ranges. Specified plots cannot exceed this value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Expt plots</string>
              </property>
@@ -262,6 +307,9 @@
            </item>
            <item row="1" column="0">
             <widget class="QLabel" name="filllcdLbl">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Plot tracker. &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Replicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Plots per rep x Reps&lt;/p&gt;&lt;p&gt;Fill plots: sum of numbers in Fills after reps&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of above values&lt;/p&gt;&lt;p&gt;Required plots: Rows x Ranges. Specified plots must equal this value.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Unreplicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Number of plots as specified by start and end values&lt;/p&gt;&lt;p&gt;Trailing plots: &amp;quot;Leftover&amp;quot; plots in the last range after the last plot&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of Expt, indent, and wheel track plots.&lt;/p&gt;&lt;p&gt;Total possible plots: Rows x Ranges. Specified plots cannot exceed this value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="autoFillBackground">
               <bool>false</bool>
              </property>
@@ -294,6 +342,9 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_13">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Plot tracker. &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Replicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Plots per rep x Reps&lt;/p&gt;&lt;p&gt;Fill plots: sum of numbers in Fills after reps&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of above values&lt;/p&gt;&lt;p&gt;Required plots: Rows x Ranges. Specified plots must equal this value.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Unreplicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Number of plots as specified by start and end values&lt;/p&gt;&lt;p&gt;Trailing plots: &amp;quot;Leftover&amp;quot; plots in the last range after the last plot&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of Expt, indent, and wheel track plots.&lt;/p&gt;&lt;p&gt;Total possible plots: Rows x Ranges. Specified plots cannot exceed this value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Wheel track plots</string>
              </property>
@@ -329,6 +380,9 @@
                <bold>true</bold>
               </font>
              </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Plot tracker. &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Replicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Plots per rep x Reps&lt;/p&gt;&lt;p&gt;Fill plots: sum of numbers in Fills after reps&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of above values&lt;/p&gt;&lt;p&gt;Required plots: Rows x Ranges. Specified plots must equal this value.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Unreplicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Number of plots as specified by start and end values&lt;/p&gt;&lt;p&gt;Trailing plots: &amp;quot;Leftover&amp;quot; plots in the last range after the last plot&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of Expt, indent, and wheel track plots.&lt;/p&gt;&lt;p&gt;Total possible plots: Rows x Ranges. Specified plots cannot exceed this value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Specified plots</string>
              </property>
@@ -363,6 +417,9 @@
                <weight>75</weight>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Plot tracker. &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Replicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Plots per rep x Reps&lt;/p&gt;&lt;p&gt;Fill plots: sum of numbers in Fills after reps&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of above values&lt;/p&gt;&lt;p&gt;Required plots: Rows x Ranges. Specified plots must equal this value.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Unreplicated Layouts:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Expt plots: Number of plots as specified by start and end values&lt;/p&gt;&lt;p&gt;Trailing plots: &amp;quot;Leftover&amp;quot; plots in the last range after the last plot&lt;/p&gt;&lt;p&gt;Wheel track plots: Length of Wheel track ranges x Rows&lt;/p&gt;&lt;p&gt;Specified plots: Sum of Expt, indent, and wheel track plots.&lt;/p&gt;&lt;p&gt;Total possible plots: Rows x Ranges. Specified plots cannot exceed this value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Total possible plots</string>
@@ -403,6 +460,9 @@
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="0" column="0">
             <widget class="QLabel" name="label_7">
+             <property name="toolTip">
+              <string>Total length of each plot. Includes alleyways.</string>
+             </property>
              <property name="text">
               <string>Plot length</string>
              </property>
@@ -410,6 +470,9 @@
            </item>
            <item row="0" column="1">
             <widget class="QLabel" name="label_6">
+             <property name="toolTip">
+              <string>Total width of each plot. Typically calculated as row-spacing x # of rows</string>
+             </property>
              <property name="text">
               <string>Plot width</string>
              </property>
@@ -455,6 +518,9 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_15">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;How much to trim off each end of the length?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Length Buffer</string>
              </property>
@@ -462,6 +528,9 @@
            </item>
            <item row="2" column="1">
             <widget class="QLabel" name="label_14">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;How much to trim off each end of the width?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="text">
               <string>Width Buffer</string>
              </property>
@@ -497,6 +566,9 @@
          </item>
          <item>
           <widget class="QComboBox" name="unitCmboBox">
+           <property name="toolTip">
+            <string>Plot dimension units</string>
+           </property>
            <item>
             <property name="text">
              <string>feet</string>
@@ -526,6 +598,9 @@
          </item>
          <item>
           <widget class="QLabel" name="label_16">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CSV containing fieldbook information. First row must be a header and plot IDs must match expected numbering system as shown in map display.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="text">
             <string>Fieldbook [optional]</string>
            </property>
@@ -540,6 +615,9 @@
          </item>
          <item>
           <widget class="QLabel" name="label_17">
+           <property name="toolTip">
+            <string>Which header corresponds to the plot number column?</string>
+           </property>
            <property name="text">
             <string>Plot Column</string>
            </property>
@@ -550,6 +628,9 @@
          </item>
          <item>
           <widget class="QLabel" name="label_18">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check any additional colummns you wish to add.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="text">
             <string>Columns to Add</string>
            </property>
@@ -560,8 +641,11 @@
          </item>
          <item>
           <widget class="QLabel" name="label_20">
+           <property name="toolTip">
+            <string>Path to save shapefile. If blank will save as temporary layer.</string>
+           </property>
            <property name="text">
-            <string>Output</string>
+            <string>Output [optional]</string>
            </property>
           </widget>
          </item>
