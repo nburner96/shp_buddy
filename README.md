@@ -1,12 +1,26 @@
 # SHP Buddy
 SHP Buddy is a QGIS plugin that provides an quick and intuitive method for generating shapefiles for common plant breeding experiment designs. SHP Buddy lays out plots in a serpentine pattern and can account for fill plots and wheel tracks. Plot sizes are adjustable to exclude things such as adjacent plots and alleyways from the regions of interest. SHP Buddy provides an easy method for integrating field book information such as line names, pedigrees, and trait notes into the final shapefile for convenient identification and viewing. SHP Buddy works out-of-the-box in QGIS and does not require additional package or script installations. 
 
+## Contents
+[Plot layout and Numbering](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#plot-layout-and-numbering)
+
+[Installation](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#installation)
+
+[Tutorial](https://github.com/nburner96/shp_buddy/blob/main/README.md#tutorial)
+
+[Plot Information](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#plot-information)
+
+[Limitations](https://github.com/nburner96/shp_buddy/blob/main/README.md#limitations)
+
 # Plot Layout and Numbering
 Plots are laid out in a serpentine pattern, beginning at the bottom left of the shapefile and working its way across each range before moving up to the next range. Experiments with less than 100 plots will be numbered using the "RPP" format, where R is the rep number, and PP is the 2-digit plot number. Ex: a 3 rep experiment with 20 plots each is numbered 101-120, 201-220, and 301-320. 
 
 Each plot in an experiment with 100 or more plots were rep is given a 4 digit plot number in the "RPPP" format. Ex: a 3 rep experiment with 200 plots each is numbered 1001-1200, 2001-2200, and 3001-3200.
 
 Fill plots, if specified, are place after the last plot in each rep (see tutorial below).
+
+# Installation
+SHP Buddy can be installed from the plugins repository directly within QGIS. The plugins repository can be accessed through selecting the Plugins dropdown > Manage and Install Plugins. Search for "SHP Buddy" in the All tab to install.
 
 # Tutorial
 This example will walk through how to make a shapefile for the following experiment map:
