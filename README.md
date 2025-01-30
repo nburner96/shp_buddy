@@ -6,7 +6,7 @@ SHP Buddy is a QGIS plugin that provides an quick and intuitive method for gener
 
 [Installation](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#installation)
 
-[Tutorial](https://github.com/nburner96/shp_buddy/blob/main/README.md#tutorial)
+[Tutorial](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#tutorial)
 
 [Plot Information](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#plot-information)
 
