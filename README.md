@@ -10,7 +10,7 @@ SHP Buddy is a QGIS plugin that provides an quick and intuitive method for gener
 
 [Plot Information](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#plot-information)
 
-[Limitations](https://github.com/nburner96/shp_buddy/blob/main/README.md#limitations)
+[Limitations](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#limitations)
 
 # Plot Layout and Numbering
 Plots are laid out in a serpentine pattern, beginning at the bottom left of the shapefile and working its way across each range before moving up to the next range. Experiments with less than 100 plots will be numbered using the "RPP" format, where R is the rep number, and PP is the 2-digit plot number. Ex: a 3 rep experiment with 20 plots each is numbered 101-120, 201-220, and 301-320. 
