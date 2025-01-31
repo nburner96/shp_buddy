@@ -12,6 +12,8 @@ SHP Buddy is a QGIS plugin that provides an quick and intuitive method for gener
 
 [Limitations](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#limitations)
 
+[Citation](https://github.com/nburner96/shp_buddy?tab=readme-ov-file#citation)
+
 # Plot Layout and Numbering
 Plots are laid out in a serpentine pattern, beginning at the bottom left of the shapefile and working its way across each range before moving up to the next range. Experiments with less than 100 plots will be numbered using the "RPP" format, where R is the rep number, and PP is the 2-digit plot number. Ex: a 3 rep experiment with 20 plots each is numbered 101-120, 201-220, and 301-320. 
 
@@ -117,4 +119,7 @@ SHP Buddy is a great option for common serpentine breeding experiments. However,
 This is by no means an exhaustive list. I hope to get around to most of these in the not too distant future. In the meantime, SHP Buddy is open source so feel free to play around with the code and send a pull request if you come up with something cool.
 
 Please report any issues [here](https://github.com/nburner96/shp_buddy/issues)
+
+## Citation
+Burner N, Harris DK, Li Z. *SHP Buddy: a QGIS plugin for generating shapefiles to support remote sensing in plant breeding and agronomic experiments*. Plant Methods. 2025 (accepted, pending publication). https://doi.org/10.1186/s13007-025-01336-1
 
