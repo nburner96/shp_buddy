@@ -121,5 +121,5 @@ This is by no means an exhaustive list. I hope to get around to most of these in
 Please report any issues [here](https://github.com/nburner96/shp_buddy/issues)
 
 ## Citation
-Burner N, Harris DK, Li Z. *SHP Buddy: a QGIS plugin for generating shapefiles to support remote sensing in plant breeding and agronomic experiments*. Plant Methods. 2025 (accepted, pending publication). https://doi.org/10.1186/s13007-025-01336-1
+Burner, N., Harris, D.K. & Li, Z. SHP Buddy: a QGIS plugin for generating shapefiles to support remote sensing in plant breeding and agronomic experiments. Plant Methods 21, 17 (2025). https://doi.org/10.1186/s13007-025-01336-1
 
