@@ -607,7 +607,7 @@ class shpBuddy:
             self.dlg.endSpin.setVisible(False)
             self.dlg.skipLbl.setVisible(False)
             self.dlg.skipSpin.setVisible(False)
-            self.dlg.filllcdLbl.setText("Trailing Plots")
+            self.dlg.filllcdLbl.setText("Fill plots")
 
             # Connect signals
             self.dlg.fillsEdit.textEdited.connect(self.enable_run_button)
