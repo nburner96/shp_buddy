@@ -37,14 +37,14 @@ SHP Buddy can be accessed from two locations in QGIS: the vector dropdown or the
 
 A dialog window will pop up where you can enter test specifications. Most sections are fairly self-explanatory, please see accompanying notes for further clarification:
 
-![image](https://github.com/user-attachments/assets/2f2a57cc-623e-4fe8-85dc-851716bd0fdc)
+![image](https://github.com/user-attachments/assets/333bff18-eda1-4a0e-85a3-c8a699e1eee0)
 
 1. Name of the experiment
 2. Plots per rep and number of reps. Plots per rep value should exclude fill plots that are not in wheel tracks (see below)
 3. Dimensions of experiment in terms of plots. Rows is the total number of plots across each range, ranges is the total number of ranges (including wheel track ranges)
 4. Number of fill plots after each rep. Expressed as a comma separated list. List length must equal Reps value (specify 0 if a rep is not followed by fills).
 5. Wheel track ranges. A list of numbers indicating which ranges (starting from the front of the field) are in wheel tracks and are planted with fills. In the example, ranges 9 and 18 are wheel track ranges.
-6. Check this box to flip the direction of the plots. If unchecked, the serpentine pattern begins with plots increasing from left to right in the first range.
+6. **Right to left:** Check this box to flip the direction of the plots. If unchecked, the serpentine pattern begins with plots increasing from left to right in the first range. **Sequential:** Disables serpentine pattern.
 
 ![image](https://github.com/user-attachments/assets/0b7accd5-e4d5-4057-a331-9110f373b6b4)
 ![image](https://github.com/user-attachments/assets/d3c399b4-6ff9-4697-8acb-4f5806af0478)
