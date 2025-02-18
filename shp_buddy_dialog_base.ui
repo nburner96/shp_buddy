@@ -259,6 +259,13 @@
           </widget>
          </item>
          <item>
+          <widget class="QCheckBox" name="seqCheck">
+           <property name="text">
+            <string>Sequential</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="warnLbl">
            <property name="minimumSize">
             <size>

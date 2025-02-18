@@ -328,6 +328,7 @@ class shpBuddy:
         self.dlg.filllcdLbl.setText("Fill plots")
 
         self.dlg.flipCheck.setChecked(False)
+        self.dlg.seqCheck.setChecked(False)
 
         self.dlg.fieldTbl.setRowCount(0)
         self.dlg.fieldTbl.setColumnCount(0)
@@ -350,6 +351,7 @@ class shpBuddy:
         wheel_track = [x - 1 for x in wheel_track]
 
         flipped = self.dlg.flipCheck.isChecked()
+        seq = self.dlg.seqCheck.isChecked()
 
         if not unrep:
             reps = self.dlg.repSpin.value()
@@ -382,9 +384,10 @@ class shpBuddy:
         groups = [vec[i:i + rows] for i in range(0, len(vec), rows)]
 
         # Reverse every other group
-        for i in range(len(groups)):
-            if i % 2 == 1:
-                groups[i] = groups[i][::-1]
+        if not seq:
+            for i in range(len(groups)):
+                if i % 2 == 1:
+                    groups[i] = groups[i][::-1]
 
         # Combine groups into a matrix
         mat = np.array([item for group in groups for item in group]).reshape(-1, rows)
@@ -615,6 +618,7 @@ class shpBuddy:
             self.dlg.rangeSpin.valueChanged.connect(self.enable_run_button)
             self.dlg.rangeSpin.valueChanged.connect(self.enable_run_button)
             self.dlg.flipCheck.stateChanged.connect(self.enable_run_button)
+            self.dlg.seqCheck.stateChanged.connect(self.enable_run_button)
 
             self.dlg.startSpin.valueChanged.connect(self.enable_run_button)
             self.dlg.endSpin.valueChanged.connect(self.enable_run_button)
@@ -668,6 +672,7 @@ class shpBuddy:
 
             wheel_track = [int(x) for x in self.dlg.wheelEdit.text().split(',') if x.strip().isdigit()]
             flipped = self.dlg.flipCheck.isChecked()
+            seq = self.dlg.seqCheck.isChecked()
 
             if not unrep:
                 reps = self.dlg.repSpin.value()
@@ -767,9 +772,10 @@ class shpBuddy:
             groups = [vec[i:i + rows] for i in range(0, len(vec), rows)]
 
             # Reverse every other group
-            for i in range(len(groups)):
-                if i % 2 == 1:
-                    groups[i] = groups[i][::-1]
+            if not seq:
+                for i in range(len(groups)):
+                    if i % 2 == 1:
+                        groups[i] = groups[i][::-1]
 
             # Combine groups into a matrix
             mat = np.array([item for group in groups for item in group]).reshape(-1, rows)
